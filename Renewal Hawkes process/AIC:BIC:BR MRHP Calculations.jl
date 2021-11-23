@@ -2,7 +2,7 @@ using CSV, JLD, Statistics, HypothesisTests, Distributions, DataFrames, Dates, P
 
 include("RHP.jl")
 #-------------------------------------------------------------------------------
-# (b) Spectral radius - implementation to ensure stationarity
+# Spectral radius - implementation to ensure stationarity
 # Exponential-kernel spectral radius
 function E_SpectralRadius(α, β)
     dim = size(α)[1]
@@ -88,7 +88,7 @@ MRHPExp_BIC = log(n)*k - 2*MRHP_ExpLL # BIC
 BR_allVaccinesExp = E_SpectralRadius(hatα , hatβ)
 
 # Calculate the half-life - log(2)/beta
-HL_allVaccinesExp = log(2)/β̂
+HL_allVaccinesExp = log(2)./β̂
 
 #-------------------------
 # for power-law
@@ -109,8 +109,8 @@ MRHPPL_BIC = log(n)*k - 2*MRHP_PLLL # BIC
 # Calculate branching ratio - alpha/gamma*(beta^(-gamma))    
 BR_allVaccinesPL =  PL_SpectralRadius(hatα, hatβ, hatγ)
 
-# Calculate half-life - log(2)/beta
-HL_allVaccinesPL = log(2)/β̂
+# Calculate half-life - exp(log(2)/gamma+1) - beta
+HL_allVaccinesPL = exp(log(2)./(γ̂+1)) - β̂
 
 #---------------------------------------------------------------------------
 ## Inference
