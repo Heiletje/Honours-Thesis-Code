@@ -52,7 +52,7 @@ MHPExp_BIC = log(n)*k - 2*MHP_ExpLL # BIC
 BR_allVaccinesExp = E_SpectralRadius(α̂ , β̂)
 
 # Calculate the half-life - log(2)/beta
-HL_allVaccinesExp = log(2)/β̂
+HL_allVaccinesExp = log(2)./β̂
 
 #---------------------------------
 # for power law 
@@ -71,8 +71,8 @@ MHPPL_BIC = log(n)*k - 2*MHP_PLLL # BIC
 # Calculate branching ratio - alpha/gamma*(beta^(-gamma))  
 BR_allVaccinesPL = PL_SpectralRadius(α̂, β̂ , γ̂)
 
-# Calculate half-life - log(2)/beta
-HL_allVaccinesPL = log(2)/β̂
+# Calculate half-life - exp(log(2)/gamma) - beta
+HL_allVaccinesPL = exp(log(2)./γ̂) - β̂
 
 #---------------------------------------------------------------------------
 ## Inference
