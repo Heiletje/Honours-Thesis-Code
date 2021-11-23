@@ -71,8 +71,8 @@ MHPPL_BIC = log(n)*k - 2*MHP_PLLL # BIC
 # Calculate branching ratio - alpha/gamma*(beta^(-gamma))  
 BR_allVaccinesPL = PL_SpectralRadius(α̂, β̂ , γ̂)
 
-# Calculate half-life - exp(log(2)/gamma) - beta
-HL_allVaccinesPL = exp(log(2)./γ̂) - β̂
+# Calculate half-life - exp(log(2)/gamma+1) - beta
+HL_allVaccinesPL = exp(log(2)./(γ̂+1)) - β̂
 
 #---------------------------------------------------------------------------
 ## Inference
